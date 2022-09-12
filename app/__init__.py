@@ -6,6 +6,7 @@ import os
 from flask_login import LoginManager
 from config import basedir
 from flask_bootstrap import Bootstrap
+from flask import Blueprint
 
 app = Flask(__name__)
 app.config.from_object('config')

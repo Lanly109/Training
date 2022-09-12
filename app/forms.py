@@ -40,7 +40,7 @@ class RegisterForm(Form):
 class AddMemberForm(Form):
 	name = TextField(u'队员姓名')
 	# grade = TextField(u'年级')
-	grade = SelectField(u'年级', choices = [(str(y + 2014), str(y + 2014)) for y in range(4)])
+	grade = SelectField(u'年级', choices = [(str(y + 2014), str(y + 2014)) for y in range(10)])
 	# major = TextField(u'专业')
 	major = SelectField(u'专业', choices = [(m, m) for m in [
 		u'计算机类',
@@ -50,7 +50,10 @@ class AddMemberForm(Form):
 		u'计算机科学与技术（超级计算方向）',
 		u'信息安全',
 		u'移动信息工程',
-		u'智能科学'
+		u'智能科学',
+        u'微电子科学与工程',
+        u'电子信息科学与技术',
+        u'其他'
 	]])
 	submit = SubmitField(u'添加')
 

@@ -7,6 +7,7 @@ from .models import *
 from copy import deepcopy
 import os, json
 
+
 @app.before_request
 def before_request():
 	g.user = current_user
