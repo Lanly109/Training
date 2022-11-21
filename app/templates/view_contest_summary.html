@@ -25,6 +25,8 @@
 		{% endfor %}
 	</tr>
 
+
+
 	{% for team in team_summary %}
 	<tr>
 		<td>
@@ -48,6 +50,20 @@
 	{% endfor %}
 	</table>
 
+
+	<h3> 碎碎念 </h3>
+	<ul class="list-group list-group-flush">
+		{% for team in team_summary %}
+			{% if team.summary %}
+				<li class="list-group-item">
+					<div class="summary">
+						**{{ team.team_name | safe }}**: {{ team.summary | safe }}
+					</div>
+				</li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+
 	<h3> 比赛Board </h3>
 	<table class="table table-bordered table-hover">
 	{% for row in board %}
@@ -63,3 +79,15 @@
 
 {% endblock %}
 
+{% block scripts %}
+{{ super()}}
+	<script src="//cdnjs.cloudflare.com/ajax/libs/marked/0.3.12/marked.min.js"></script>
+	<script>
+'use strict';
+$('.summary').each((i, e) => {
+	const md = $(e).html().trim();
+	const html = marked(md);
+	$(e).html(html);
+});
+	</script>
+{% endblock %}

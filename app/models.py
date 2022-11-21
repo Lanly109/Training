@@ -42,6 +42,7 @@ class TeamSummary(db.Model):
 	member2 = db.relationship("Member", foreign_keys = team_member2)
 	member3 = db.relationship("Member", foreign_keys = team_member3)
 	acinfo = db.Column(db.String(240))
+	summary = db.Column(db.Text, nullable = True)
 
 class AnonymousUser(AnonymousUserMixin):
 	pass

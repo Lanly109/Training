@@ -62,7 +62,7 @@ class ContestSummaryForm(Form):
 	source = TextField(u'比赛来源', validators = [Required()])
 	board = TextAreaField(u'Board', validators = [Required()])
 	date = DateTimeField(u'日期')
-	countp = SelectField(u'题数', coerce = int, choices = [(cnt, '%d - %c' % (cnt, chr(64 + cnt))) for cnt in range(5, 14)])
+	countp = SelectField(u'题数', coerce = int, choices = [(cnt, '%d - %c' % (cnt, chr(64 + cnt))) for cnt in range(5, 15)])
 	submit = SubmitField(u'提交')
 
 class TeamInfoForm(Form):
@@ -71,6 +71,7 @@ class TeamInfoForm(Form):
 	team_member1 = SelectField(u'队员A', coerce = int, choices = [])
 	team_member2 = SelectField(u'队员B', coerce = int, choices = [])
 	team_member3 = SelectField(u'队员C', coerce = int, choices = [])
+	summary = TextAreaField(u'碎碎念', validators = [Required()])
 	
 	A = FieldList(BooleanField(u''), label='队员A', min_entries=5)
 	B = FieldList(BooleanField(u''), label='队员B', min_entries=5)
